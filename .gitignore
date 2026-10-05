@@ -1,0 +1,33 @@
+# Data
+datasets/
+data/
+exports/
+
+HANDOFF.MD
+
+# MLflow
+mlruns/
+mlflow.db
+mlruns.db
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Jupyter
+.ipynb_checkpoints/

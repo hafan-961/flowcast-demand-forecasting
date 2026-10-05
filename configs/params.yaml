@@ -1,0 +1,63 @@
+# ============================================================
+# FlowCast Configuration
+# ============================================================
+# ALL PARAMETERS LABELED "SYNTHETIC" ARE ASSUMED VALUES.
+# The M5 dataset does not contain lead times, holding costs,
+# stockout costs, or warehouse capacities.
+# These are illustrative and must be replaced with real data
+# for any real-world application.
+# ============================================================
+
+subset:
+  # Stratified top-100 items by sales volume:
+  #   FOODS: 60, HOUSEHOLD: 25, HOBBIES: 15
+  # All 10 stores retained, 3 states (CA, TX, WI)
+  n_items: 100
+  items_per_category:
+    FOODS: 60
+    HOUSEHOLD: 25
+    HOBBIES: 15
+  reason: "8 GB RAM, 3.5 GB free disk - full 30,490 series would OOM"
+
+forecast:
+  horizon: 28  # days ahead to forecast
+  test_days: 28  # final 28 days held out, never used for tuning
+  cv_folds: 3  # rolling-origin cross-validation folds
+  cv_step: 28  # days between fold origins
+  frequency: "daily"
+
+inventory:  # ALL SYNTHETIC ASSUMPTIONS
+  lead_time_days: 7          # SYNTHETIC - assumed replenishment lead time
+  service_level: 0.95        # SYNTHETIC - target service level for safety stock
+  z_score: 1.645             # z for 95% service level (one-tail normal)
+  review_period_days: 7      # SYNTHETIC - periodic review cycle
+  holding_cost_per_unit: 0.5 # SYNTHETIC - $/unit/day
+  stockout_cost_per_unit: 2.0 # SYNTHETIC - $/unit/day
+
+optimizer:  # ALL SYNTHETIC ASSUMPTIONS
+  warehouse_capacity:        # SYNTHETIC - units per store
+    CA_1: 50000
+    CA_2: 40000
+    CA_3: 35000
+    CA_4: 30000
+    TX_1: 45000
+    TX_2: 35000
+    TX_3: 30000
+    WI_1: 40000
+    WI_2: 35000
+    WI_3: 30000
+  transfer_cost_per_unit:    # SYNTHETIC - $/unit between states
+    intra_state: 0.10
+    inter_state: 0.50
+  min_allocation_pct: 0.05   # min 5% of demand allocated per store
+
+lightgbm:
+  n_estimators: 500
+  learning_rate: 0.05
+  num_leaves: 63
+  min_child_samples: 50
+  subsample: 0.8
+  colsample_bytree: 0.8
+  reg_alpha: 0.1
+  reg_lambda: 0.1
+  verbose: -1

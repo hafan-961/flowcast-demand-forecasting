@@ -1,0 +1,13 @@
+# Pinned from pip freeze on Python 3.13.2, macOS
+# VERIFIED versions - actually installed and tested
+lightgbm==4.7.0
+mlflow==3.16.1
+pulp==4.0.0
+pandas==2.2.3
+numpy==2.2.4
+scikit-learn==1.7.2
+matplotlib==3.10.7
+seaborn==0.13.2
+pyarrow==25.0.0
+pytest==9.1.1
+PyYAML==6.0.3
