@@ -2,7 +2,7 @@
 
 *(Note: The M5 Forecasting dataset from Kaggle is used here as a stand-in for a supply chain structure. The states CA, TX, WI are treated as regional hubs, and the 10 stores are treated as fulfilment nodes. This is NOT actual HP data.)*
 
-An end-to-end Machine Learning and Operations Research prototype designed for the HP "AI for Placement and Inventory Management" Data Science Intern role. 
+
 
 This project tackles two core supply chain challenges:
 1. **Demand Forecasting**: Predicting SKU-level daily demand using LightGBM (Point P50 and Quantile P90 models) with strict temporal holdout validation.
