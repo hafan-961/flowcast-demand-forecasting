@@ -9,7 +9,7 @@ This project tackles two core supply chain challenges:
 2. **Inventory Placement**: Optimizing the allocation of inventory across a constrained fulfilment network to minimize transfer, holding, and stockout costs using Linear Programming (PuLP).
 
 ## 🚀 Key Results
-- **Forecasting Excellence**: LightGBM outperformed the 28-day Moving Average baseline on WAPE (0.4701 vs 0.4737) and achieved near-perfect prediction interval coverage (90.6% on a 90% target).
+- **Forecasting Excellence**: LightGBM outperformed the 28-day Moving Average baseline on Weighted Absolute Percentage Error (WAPE :0.4701 vs 0.4737) and achieved near-perfect prediction interval coverage (90.6% on a 90% target).
 - **Network Optimization**: The PuLP Linear Program saved **$1,520 (7.15%)** per week compared to a naive proportional allocation by strategically balancing $2.00 stockout costs against $0.50 interstate transfer costs under strict warehouse capacity limits.
 - **Robust Engineering**: Implemented Medallion architecture (Bronze/Silver/Gold) using Pandas/Parquet (simulating PySpark/Delta), strict rolling-origin cross-validation, MLflow experiment tracking, and mathematical unit tests.
 
